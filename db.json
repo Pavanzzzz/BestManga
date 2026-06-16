@@ -1,0 +1,28 @@
+{
+  "mangas": [
+    {
+      "id": 1,
+      "title": "One Piece",
+      "author": "Eiichiro Oda",
+      "genre": "Adventure",
+      "image": "/images/onepiece.jpeg",
+      "description": "Follow Luffy on his journey to become Pirate King."
+    },
+    {
+      "id": 2,
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
+      "genre": "Action",
+      "image": "/images/naruto.jpeg",
+      "description": "A ninja dreams of becoming Hokage."
+    },
+    {
+      "id": 3,
+      "title": "Bleach",
+      "author": "Tite Kubo",
+      "genre": "Action",
+      "image": "/images/bleach.jpeg",
+      "description": "Soul Reapers and Hollows collide."
+    }
+  ]
+}
