@@ -1,23 +1,20 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
-
-  const user = localStorage.getItem("user");
-
-  const logout = () => {
-    localStorage.removeItem("user");
-    window.location.reload();
-  };
-
   return (
-    <nav>
-      <h2>Best Manga</h2>
+    <nav className="navbar">
+
+      <h1 className="logo">
+        Best Manga
+      </h1>
 
       <div className="nav-links">
 
         <Link to="/">Home</Link>
 
-        <Link to="/mangas">Mangas</Link>
+        <Link to="/mangas">
+          Mangas
+        </Link>
 
         <Link to="/favorites">
           Favorites
@@ -27,26 +24,16 @@ function Navbar() {
           Add Manga
         </Link>
 
-        {!user ? (
-          <>
-            <Link to="/login">
-              Login
-            </Link>
+        <Link to="/login">
+          Login
+        </Link>
 
-            <Link to="/register">
-              Register
-            </Link>
-          </>
-        ) : (
-          <button
-            className="btn"
-            onClick={logout}
-          >
-            Logout
-          </button>
-        )}
+        <Link to="/register">
+          Register
+        </Link>
 
       </div>
+
     </nav>
   );
 }
