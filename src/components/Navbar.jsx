@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+  const isLoggedIn =
+    localStorage.getItem("loggedIn");
+
+  const logout = () => {
+
+    localStorage.removeItem("loggedIn");
+
+    alert("Logged Out Successfully");
+
+    window.location.href = "/";
+  };
+
   return (
     <nav className="navbar">
 
@@ -10,7 +23,9 @@ function Navbar() {
 
       <div className="nav-links">
 
-        <Link to="/">Home</Link>
+        <Link to="/">
+          Home
+        </Link>
 
         <Link to="/mangas">
           Mangas
@@ -20,17 +35,30 @@ function Navbar() {
           Favorites
         </Link>
 
-        <Link to="/add">
-          Add Manga
-        </Link>
+        {isLoggedIn && (
+          <Link to="/add">
+            Add Manga
+          </Link>
+        )}
 
-        <Link to="/login">
-          Login
-        </Link>
+        {!isLoggedIn ? (
+          <>
+            <Link to="/login">
+              Login
+            </Link>
 
-        <Link to="/register">
-          Register
-        </Link>
+            <Link to="/register">
+              Register
+            </Link>
+          </>
+        ) : (
+          <button
+            className="btn btn-delete"
+            onClick={logout}
+          >
+            Logout
+          </button>
+        )}
 
       </div>
 

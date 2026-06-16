@@ -9,6 +9,7 @@ import AddManga from "../pages/AddManga";
 import EditManga from "../pages/EditManga";
 import Favorites from "../pages/Favorites";
 import Notfound from "../pages/Notfound";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 function AppRoutes() {
   return (
@@ -26,8 +27,14 @@ function AppRoutes() {
         element={<MangaDetails />}
       />
 
-      <Route path="/add" element={<AddManga />} />
-
+      <Route
+  path="/add"
+  element={
+    <ProtectedRoute>
+      <AddManga />
+    </ProtectedRoute>
+  }
+/>
       <Route
         path="/edit/:id"
         element={<EditManga />}

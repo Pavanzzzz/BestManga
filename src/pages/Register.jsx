@@ -2,28 +2,22 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-
   const navigate = useNavigate();
 
-  const [user,setUser] = useState({
-    username:"",
-    password:""
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
   });
 
-  const handleChange = (e)=>{
-    setUser({
-      ...user,
-      [e.target.name]:e.target.value
-    });
-  };
-
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     localStorage.setItem(
-      "registeredUser",
+      "user",
       JSON.stringify(user)
     );
+
+    alert("Registration Successful");
 
     navigate("/login");
   };
@@ -33,21 +27,27 @@ function Register() {
       <h2>Register</h2>
 
       <input
-        name="username"
         placeholder="Username"
-        onChange={handleChange}
+        onChange={(e) =>
+          setUser({
+            ...user,
+            username: e.target.value,
+          })
+        }
       />
 
       <input
         type="password"
-        name="password"
         placeholder="Password"
-        onChange={handleChange}
+        onChange={(e) =>
+          setUser({
+            ...user,
+            password: e.target.value,
+          })
+        }
       />
 
-      <button className="btn">
-        Register
-      </button>
+      <button>Register</button>
     </form>
   );
 }

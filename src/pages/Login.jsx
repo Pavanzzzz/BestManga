@@ -2,38 +2,34 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-
   const navigate = useNavigate();
 
-  const [username,setUsername] =
-  useState("");
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
 
-  const [password,setPassword] =
-  useState("");
-
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const user = JSON.parse(
-      localStorage.getItem(
-        "registeredUser"
-      )
-    );
+    const user =
+      JSON.parse(localStorage.getItem("user"));
 
-    if(
+    if (
       user &&
-      user.username===username &&
-      user.password===password
-    ){
+      user.username === login.username &&
+      user.password === login.password
+    ) {
       localStorage.setItem(
-        "user",
-        username
+        "loggedIn",
+        "true"
       );
 
+      alert("Login Successful");
+
       navigate("/");
-    }
-    else{
-      alert("Invalid credentials");
+    } else {
+      alert("Invalid Credentials");
     }
   };
 
@@ -43,22 +39,26 @@ function Login() {
 
       <input
         placeholder="Username"
-        onChange={(e)=>
-          setUsername(e.target.value)
+        onChange={(e) =>
+          setLogin({
+            ...login,
+            username: e.target.value,
+          })
         }
       />
 
       <input
         type="password"
         placeholder="Password"
-        onChange={(e)=>
-          setPassword(e.target.value)
+        onChange={(e) =>
+          setLogin({
+            ...login,
+            password: e.target.value,
+          })
         }
       />
 
-      <button className="btn">
-        Login
-      </button>
+      <button>Login</button>
     </form>
   );
 }
