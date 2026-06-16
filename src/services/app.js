@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:3000/mangas";
+const API_URL = "https://bestmanga.onrender.com";
 
 export const getMangas = () => axios.get(API);
 
