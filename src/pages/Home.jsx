@@ -3,7 +3,7 @@ function Home() {
     <div className="hero">
       <div className="hero-content">
 
-        <h1>BEST MANGA</h1>
+        <h1>BEST FICTION</h1>
 
         <p>
           Discover, Review and Track

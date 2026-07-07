@@ -38,7 +38,7 @@ function EditManga() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Edit Manga</h2>
+      <h2>Edit Fiction</h2>
 
       <input
         name="title"

@@ -30,7 +30,7 @@ function AddManga() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Manga</h2>
+      <h2>Add Fiction</h2>
 
       <input
         name="title"
@@ -62,7 +62,7 @@ function AddManga() {
         onChange={handleChange}
       />
 
-      <button>Add Manga</button>
+      <button>Add Fiction</button>
     </form>
   );
 }
